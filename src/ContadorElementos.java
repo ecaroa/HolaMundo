@@ -34,9 +34,19 @@ public class ContadorElementos {
             int longitudArray = scanner.nextInt();
             int[] arreglo = new int[longitudArray];
 
+            //aca agregue una validación para que no pueda ingresar números fuera del rando
             System.out.println("Ingrese los elementos del arreglo (números entre 1 y 9):");
             for (int i = 0; i < longitudArray; i++) {
-                arreglo[i] = scanner.nextInt();
+                int numero;
+                while (true) {
+                    numero = scanner.nextInt();
+                    if (numero >= 1 && numero <= 9) {
+                        break;
+                    } else {
+                        System.out.println("Número inválido. Por favor, ingrese un número entre 1 y 9:");
+                    }
+                }
+                arreglo[i] = numero;
             }
 
             return arreglo;
